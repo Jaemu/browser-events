@@ -1,0 +1,66 @@
+<html>
+<head>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
+	var logEvent = function(event){
+		console.log(event.type);
+	}
+
+	$(document)
+	    .on('touchstart', '.hit-area', logEvent(event))
+	    .on('touchend', '.hit-area', logEvent(event))
+	    .on('touchmove', '.hit-area', logEvent(event))
+	    .on('mousedown', '.hit-area', logEvent(event))
+	    .on('mouseup', '.hit-area', logEvent(event))
+	    .on('mousemove', '.hit-area', logEvent(event))
+	    .on('mouseover', '.hit-area', logEvent(event))
+	    .on('mouseout', '.hit-area', logEvent(event))
+	    .on('pointerDown', '.hit-area', logEvent(event))
+	    .on('pointerUp', '.hit-area', logEvent(event))
+	    .on('pointerMove', '.hit-area', logEvent(event));
+	</script>
+	<style>
+	.hit-area {
+    background-color: rebeccapurple;
+    color:#000;
+    max-width:200px;
+    height:200px;
+    border-radius: 50px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top:50px;
+}
+.hit-area:hover{
+    background-color:yellow;
+}
+.events{
+    display: inline-block;
+    overflow: scroll;
+    border: solid 2px #000;
+    min-height: 200px;
+    min-width: 200px;
+}
+li{
+    list-style-type: none;    
+}
+li:nth-child(2){
+    background-color: red;
+}
+</style>
+</head>
+<body>
+	<div class="hit-area-left">
+		<div class="hit-area">
+   			 <div class="slime-button">HIT ME!</div>
+		</div>
+		<div class="events">
+		    <ul class="event-list">
+		        <li>event 1</li>
+		        <li>event 2</li>
+		    </ul>
+		</div>
+	</div>
+	<div class="hit-area-right">
+	</div>
+</body>
+</html>
