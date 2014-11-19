@@ -7,12 +7,15 @@
     	logEvent: function(e){
     		if(!!e){
 				console.log(e.type);
+				$('.event-list').append($.parseHTML('<li>' + eventNumber + ': '+ e.type + '</li>'));
+				eventNumber++;
     		}
 		}
 	};
-
+	var eventNumber = 0;
 	$(document)
 	    .on('touchstart', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('touchcancel', '.hit-area',$.proxy(this.Handler.logEvent, this))
 	    .on('touchend', '.hit-area', $.proxy(this.Handler.logEvent, this))
 	    .on('touchmove', '.hit-area',$.proxy(this.Handler.logEvent, this))
 	    .on('mousedown', '.hit-area', $.proxy(this.Handler.logEvent, this))
@@ -22,7 +25,9 @@
 	    .on('mouseout', '.hit-area', $.proxy(this.Handler.logEvent, this))
 	    .on('pointerDown', '.hit-area', $.proxy(this.Handler.logEvent, this))
 	    .on('pointerUp', '.hit-area', $.proxy(this.Handler.logEvent, this))
-	    .on('pointerMove', '.hit-area', $.proxy(this.Handler.logEvent, this));
+	    .on('pointerMove', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('click', '.hit-area', $.proxy(this.Handler.logEvent, this));
+	    console.log($._data(document, 'events'));
 
 
 	</script>
@@ -62,8 +67,6 @@ li:nth-child(2){
 		</div>
 		<div class="events">
 		    <ul class="event-list">
-		        <li>event 1</li>
-		        <li>event 2</li>
 		    </ul>
 		</div>
 	</div>
