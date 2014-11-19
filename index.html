@@ -6,6 +6,7 @@
 	var Handler = {
     	logEvent: function(e){
     		if(!!e){
+    			e.preventDefault();
 				console.log(e.type);
 				$('.event-list').append($.parseHTML('<li>' + eventNumber + ': '+ e.type + ', target: ' + e.currentTarget.classList + '</li>'));
 				eventNumber++;
