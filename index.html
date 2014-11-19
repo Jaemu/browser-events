@@ -26,6 +26,8 @@
 	    .on('pointerdown', '.hit-area', $.proxy(this.Handler.logEvent, this))
 	    .on('pointerup', '.hit-area', $.proxy(this.Handler.logEvent, this))
 	    .on('pointermove', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('pointercancel', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('pointerover', '.hit-area', $.proxy(this.Handler.logEvent, this))
 	    .on('click', '.hit-area', $.proxy(this.Handler.logEvent, this));
 	    console.log($._data(document, 'events'));
 
