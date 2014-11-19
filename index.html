@@ -7,7 +7,7 @@
     	logEvent: function(e){
     		if(!!e){
 				console.log(e.type);
-				$('.event-list').append($.parseHTML('<li>' + eventNumber + ': '+ e.type + ', target: ' + e.currentTarget + '</li>'));
+				$('.event-list').append($.parseHTML('<li>' + eventNumber + ': '+ e.type + ', target: ' + e.currentTarget.classList + '</li>'));
 				eventNumber++;
     		}
 		}
@@ -28,7 +28,22 @@
 	    .on('pointermove', '.hit-area', $.proxy(this.Handler.logEvent, this))
 	    .on('pointercancel', '.hit-area', $.proxy(this.Handler.logEvent, this))
 	    .on('pointerover', '.hit-area', $.proxy(this.Handler.logEvent, this))
-	    .on('click', '.hit-area', $.proxy(this.Handler.logEvent, this));
+	    .on('click', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('touchstart', '.slime-button', $.proxy(this.Handler.logEvent, this))
+	    .on('touchcancel', '.slime-button',$.proxy(this.Handler.logEvent, this))
+	    .on('touchend', '.slime-button', $.proxy(this.Handler.logEvent, this))
+	    .on('touchmove', '.slime-button',$.proxy(this.Handler.logEvent, this))
+	    .on('mousedown', '.slime-button', $.proxy(this.Handler.logEvent, this))
+	    .on('mouseup', '.slime-button', $.proxy(this.Handler.logEvent, this))
+	    .on('mousemove', '.slime-button', $.proxy(this.Handler.logEvent, this))
+	    .on('mouseover', '.slime-button', $.proxy(this.Handler.logEvent, this))
+	    .on('mouseout', '.slime-button', $.proxy(this.Handler.logEvent, this))
+	    .on('pointerdown', '.slime-button', $.proxy(this.Handler.logEvent, this))
+	    .on('pointerup', '.slime-button', $.proxy(this.Handler.logEvent, this))
+	    .on('pointermove', '.slime-button', $.proxy(this.Handler.logEvent, this))
+	    .on('pointercancel', '.slime-button', $.proxy(this.Handler.logEvent, this))
+	    .on('pointerover', '.slime-button', $.proxy(this.Handler.logEvent, this))
+	    .on('click', '.slime-button', $.proxy(this.Handler.logEvent, this));
 	    console.log($._data(document, 'events'));
 
 
@@ -43,6 +58,7 @@
     text-align: center;
     vertical-align: middle;
     padding-top:50px;
+    margin: 50px auto;
 }
 .hit-area:hover{
     background-color:yellow;
