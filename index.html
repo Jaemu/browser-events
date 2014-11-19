@@ -23,9 +23,9 @@
 	    .on('mousemove', '.hit-area', $.proxy(this.Handler.logEvent, this))
 	    .on('mouseover', '.hit-area', $.proxy(this.Handler.logEvent, this))
 	    .on('mouseout', '.hit-area', $.proxy(this.Handler.logEvent, this))
-	    .on('pointerDown', '.hit-area', $.proxy(this.Handler.logEvent, this))
-	    .on('pointerUp', '.hit-area', $.proxy(this.Handler.logEvent, this))
-	    .on('pointerMove', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('pointerdown', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('pointerup', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('pointermove', '.hit-area', $.proxy(this.Handler.logEvent, this))
 	    .on('click', '.hit-area', $.proxy(this.Handler.logEvent, this));
 	    console.log($._data(document, 'events'));
 
