@@ -2,22 +2,29 @@
 <head>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script>
-	var logEvent = function(event){
-		console.log(event.type);
-	}
+
+	var Handler = {
+    	logEvent: function(e){
+    		if(!!e){
+				console.log(e.type);
+    		}
+		}
+	};
 
 	$(document)
-	    .on('touchstart', '.hit-area', logEvent(event))
-	    .on('touchend', '.hit-area', logEvent(event))
-	    .on('touchmove', '.hit-area', logEvent(event))
-	    .on('mousedown', '.hit-area', logEvent(event))
-	    .on('mouseup', '.hit-area', logEvent(event))
-	    .on('mousemove', '.hit-area', logEvent(event))
-	    .on('mouseover', '.hit-area', logEvent(event))
-	    .on('mouseout', '.hit-area', logEvent(event))
-	    .on('pointerDown', '.hit-area', logEvent(event))
-	    .on('pointerUp', '.hit-area', logEvent(event))
-	    .on('pointerMove', '.hit-area', logEvent(event));
+	    .on('touchstart', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('touchend', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('touchmove', '.hit-area',$.proxy(this.Handler.logEvent, this))
+	    .on('mousedown', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('mouseup', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('mousemove', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('mouseover', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('mouseout', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('pointerDown', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('pointerUp', '.hit-area', $.proxy(this.Handler.logEvent, this))
+	    .on('pointerMove', '.hit-area', $.proxy(this.Handler.logEvent, this));
+
+
 	</script>
 	<style>
 	.hit-area {
