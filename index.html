@@ -7,7 +7,7 @@
     	logEvent: function(e){
     		if(!!e){
 				console.log(e.type);
-				$('.event-list').append($.parseHTML('<li>' + eventNumber + ': '+ e.type + '</li>'));
+				$('.event-list').append($.parseHTML('<li>' + eventNumber + ': '+ e.type + ', target: ' + e.currentTarget + '</li>'));
 				eventNumber++;
     		}
 		}
